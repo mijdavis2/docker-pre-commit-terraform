@@ -13,3 +13,9 @@ repos:
   hooks:
     - id: shfmt
       args: ['-l', '-i', '2', '-ci', '-sr', '-w']
+- repo: https://git.shore.co.il/nimrod/docker-pre-commit.git
+  rev: v0.3.0
+  hooks:
+  - id: hadolint
+  - id: docker-compose
+  - id: dockerfile-lint

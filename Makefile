@@ -1,7 +1,7 @@
-.PHONY: changelog release
+require:
+	@docker --version >/dev/null 2>&1 || (echo "ERROR: docker is required."; exit 1)
+	@pip --version >/dev/null 2>&1 || (echo "ERROR: pip is required."; exit 1)
 
-changelog:
-	git-chglog -o CHANGELOG.md --next-tag `semtag final -s minor -o`
-
-release:
-	semtag final -s minor
+init: require
+	@pre-commit --version >/dev/null 2>&1 || (pip install pre-commit)
+	@pre-commit install >/dev/null 2>&1
