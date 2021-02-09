@@ -3,9 +3,9 @@ from setuptools import setup
 
 
 setup(
-    name='pre-commit-terraform',
+    name='docker-pre-commit-terraform',
     description='Pre-commit hooks for terraform_docs_replace',
-    url='https://github.com/antonbabenko/pre-commit-terraform',
+    url='https://github.com/mijdavis2/docker-pre-commit-terraform',
     version_format='{tag}+{gitsha}',
 
     author='Contributors',

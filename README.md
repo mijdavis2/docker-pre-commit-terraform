@@ -1,10 +1,19 @@
+# docker-pre-commit-terraform
+
+> :construction: **WIP!**
+>
+> Forked and refactored from https://github.com/antonbabenko/pre-commit-terraform
+>
+> Main purpose of fork is to run pre-commit dockerized, reducing the required number of dependencies on the host.
+> This for also supports all versions of terraform and terragrunt on demand using [tfenv](https://github.com/tfutils/tfenv) and [tgenv](https://github.com/taosmountain/tgenv).
+
 # Collection of git hooks for Terraform to be used with [pre-commit framework](http://pre-commit.com/)
 
-[![Github tag](https://img.shields.io/github/tag/antonbabenko/pre-commit-terraform.svg)](https://github.com/antonbabenko/pre-commit-terraform/releases) ![](https://img.shields.io/maintenance/yes/2020.svg) [![Help Contribute to Open Source](https://www.codetriage.com/antonbabenko/pre-commit-terraform/badges/users.svg)](https://www.codetriage.com/antonbabenko/pre-commit-terraform)
+[![Github tag](https://img.shields.io/github/tag/mijdavis2/docker-pre-commit-terraform.svg)](https://github.com/mijdavis2/docker-pre-commit-terraform/releases)
 
 ## How to install
 
-### 1. Install dependencies
+### 1. ~~Install dependencies~~
 
 * [`pre-commit`](https://pre-commit.com/#install)
 * [`terraform-docs`](https://github.com/terraform-docs/terraform-docs) required for `terraform_docs` hooks. `GNU awk` is required if using `terraform-docs` older than 0.8.0 with Terraform 0.12.
@@ -13,14 +22,14 @@
 * [`coreutils`](https://formulae.brew.sh/formula/coreutils) required for `terraform_validate` hook on macOS (due to use of `realpath`).
 * [`checkov`](https://github.com/bridgecrewio/checkov) required for `checkov` hook.
 
-##### MacOS
+##### ~~MacOS~~
 
 ```bash
 brew tap liamg/tfsec
 brew install pre-commit gawk terraform-docs tflint tfsec coreutils
 ```
 
-##### Ubuntu
+##### ~~Ubuntu~~
 
 ```bash
 sudo apt install python3-pip gawk &&\
@@ -30,7 +39,7 @@ curl -L "$(curl -s https://api.github.com/repos/terraform-linters/tflint/release
 env GO111MODULE=on go get -u github.com/liamg/tfsec/cmd/tfsec
 ```
 
-### 2. Install the pre-commit hook globally
+### 2. ~~Install the pre-commit hook globally~~
 
 ```bash
 DIR=~/.git-template
@@ -46,15 +55,15 @@ Step into the repository you want to have the pre-commit hooks installed and run
 git init
 cat <<EOF > .pre-commit-config.yaml
 repos:
-- repo: git://github.com/antonbabenko/pre-commit-terraform
-  rev: <VERSION> # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+- repo: git://github.com/mijdavis2/docker-pre-commit-terraform
+  rev: <VERSION> # Get the latest from: https://github.com/mijdavis2/docker-pre-commit-terraform/releases
   hooks:
     - id: terraform_fmt
     - id: terraform_docs
 EOF
 ```
 
-### 4. Run
+### 4. ~~Run~~
 
 After pre-commit hook has been installed you can run it manually on all files in the repository
 
